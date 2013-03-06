@@ -1,0 +1,124 @@
+﻿<documents created="2013-03-05 19:39:24Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\GridStorage.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[using System;
+using GameOfLife.Contracts;
+using GameOfLife.Models;
+namespace GameOfLife.Data
+{
+    /// <summary>
+    /// Two dimensional array implementation to store te cell information
+    /// </summary>
+    public class GridStorage : IGridStorage
+    {
+        private readonly bool[,] _gridDataContainer;
+        private readonly IGridSize _gridSize;
+
+        ]]></source>
+</chunk>
+<method name=".ctor" namespace="GameOfLife.Data" type="GameOfLife.Data.GridStorage" typeName="GridStorage" token="6000001" module="GameOfLife.Data.dll"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="6" value="1"/>
+<hit index="7" value="1"/>
+<hit index="28" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="4" total="7" coveredRatio="0.5714285714285714"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[public GridStorage(IGridSize gridSize)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0007" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0008" domain="usercodeundertest"><source><![CDATA[if (gridSize == null)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="1" offset="0013" domain="usercodeundertest"><source><![CDATA[throw new ArgumentNullException("gridSize");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="001e" domain="usercodeundertest"><source><![CDATA[_gridSize = gridSize;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0025" domain="usercodeundertest"><source><![CDATA[_gridDataContainer = new bool[gridSize.Rows, gridSize.Columns];]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="003c" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+        public void SetCell(IGridPosition gridPosition, bool alive)
+        {
+            if (gridPosition == null) throw new ArgumentNullException("gridPosition");
+            if (!IsValidGridPosition(gridPosition)) throw new ArgumentOutOfRangeException("gridPosition");
+            _gridDataContainer[gridPosition.Row, gridPosition.Column] = alive;
+        }
+
+
+        public bool IsCellAlive(IGridPosition gridPosition)
+        {
+            if (gridPosition == null) throw new ArgumentNullException("gridPosition");
+            if (!IsValidGridPosition(gridPosition)) throw new ArgumentOutOfRangeException("gridPosition");
+            return _gridDataContainer[gridPosition.Row, gridPosition.Column];
+        }
+
+
+        public ICellInfo GetCell(IGridPosition gridPosition)
+        {
+            if (gridPosition == null) throw new ArgumentNullException("gridPosition");
+            if (!IsValidGridPosition(gridPosition)) throw new ArgumentOutOfRangeException("gridPosition");
+            var isCellAlive = IsCellAlive(gridPosition);
+            //int getNumberOfAdjacentCells = GetNumberOfAdjacentCells(gridPosition);
+            var cell= new CellInfo(new Position(gridPosition.Row,gridPosition.Column), isCellAlive);
+            //cell.Neighbours = getNumberOfAdjacentCells;
+            return cell;
+        }
+
+        //public IExtendedCellStatusInfo CreateExtendedGridCellInfo(IGridPosition gridPosition)
+        //{
+        //    if (!IsValidGridPosition(gridPosition)) throw new ArgumentOutOfRangeException("gridPosition");
+
+        //    bool isCellAlive = IsCellAlive(gridPosition);
+        //    int getNumberOfAdjacentCells = GetNumberOfAdjacentCells(gridPosition);
+        //    var newCell = new ExtendedCellStatusInfo(isCellAlive, getNumberOfAdjacentCells);
+        //    return newCell;
+        //}
+
+        //private int GetNumberOfAdjacentCells(IGridPosition gridPosition)
+        //{
+            //int numberOfLivingAdjacentCells = 0;
+            //if (_gridDataContainer[gridPosition.Row - 1, gridPosition.Column - 1]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row - 1, gridPosition.Column]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row - 1, gridPosition.Column + 1]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row, gridPosition.Column - 1]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row, gridPosition.Column + 1]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row + 1, gridPosition.Column - 1]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row + 1, gridPosition.Column]) numberOfLivingAdjacentCells += 1;
+            //if (_gridDataContainer[gridPosition.Row + 1, gridPosition.Column + 1]) numberOfLivingAdjacentCells += 1;
+            //return numberOfLivingAdjacentCells;
+        //}
+
+        private bool IsValidGridPosition(IGridPosition gridPosition)
+        {
+            return (gridPosition.Column < _gridSize.Columns && gridPosition.Row < _gridSize.Rows);
+        }
+
+    }
+}]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Data.Tests)" missing="true"><method name="Constructor" type="GameOfLife.Data.GridStorageTest" token="6000001" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="2" coveredRatio="0.5"/>
+</method>
+</document>
+</documents>

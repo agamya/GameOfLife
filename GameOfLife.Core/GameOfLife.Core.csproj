@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9ACE93F-55D6-4083-8B8C-32539D59469D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameOfLife.Core</RootNamespace>
+    <AssemblyName>GameOfLife.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameRules.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generation.cs" />
+    <Compile Include="Grid.cs" />
+    <Compile Include="NeighboursFinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specifications\IsReproduciableSpecification.cs" />
+    <Compile Include="Specifications\IsUnderPopulatedSpecification.cs" />
+    <Compile Include="Specifications\IsSurvivableSpecification.cs" />
+    <Compile Include="Specifications\IsOverCrowdedSpecification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess.Specification\DataAccess.Specification.csproj">
+      <Project>{71e258d4-55fb-4a9d-b62b-2fee02a953a1}</Project>
+      <Name>DataAccess.Specification</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.Contracts\GameOfLife.Contracts.csproj">
+      <Project>{b4da1c85-1bf5-45de-bec6-3f53b976477c}</Project>
+      <Name>GameOfLife.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.Data\GameOfLife.Data.csproj">
+      <Project>{6821bb0d-1520-4a8d-b02f-4fadfd2b11f2}</Project>
+      <Name>GameOfLife.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.Models\GameOfLife.Models.csproj">
+      <Project>{E6B3656E-6B84-4ECF-B584-AA3CCFA6D0A9}</Project>
+      <Name>GameOfLife.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

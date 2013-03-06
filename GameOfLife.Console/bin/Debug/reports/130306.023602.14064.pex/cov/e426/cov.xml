@@ -1,0 +1,386 @@
+﻿<documents created="2013-03-05 21:06:46Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using GameOfLife.Contracts;
+using GameOfLife.Models;
+
+namespace GameOfLife.Helpers
+{
+    public static class UiHelper
+    {
+        #region Constants
+
+        private const char LiveCell = 'X';
+        private const char DeadCell = '-';
+        private const char Separator = ' ';
+        private const char ColumnSeparator = ',';
+        private const char RowSeparator = '|';
+        #endregion
+
+
+        #region Helper UI funcions
+
+        //public static void PrintInstructionsToScreen()
+        //{
+        //    Console.WriteLine("---------------------Welcome to The Game Of Life---------------------------\n");
+        //    Console.WriteLine(
+        //        "To start you will have to specify the size of the grid,\nthe initial live cells in the grid and\nthe number of times you want the grid to evolve.\n\n");
+        //    Console.WriteLine("Specify the live cells in the format : RowNumber,ColunmNumber \n\n");
+        //    Console.WriteLine("A live cell is represented by Live and ");
+        //    Console.WriteLine("A dead cell is represented by Dead\n\n");
+        //    Console.WriteLine("Please follow the below messages carefully to execute without any problem.\n\n");
+        //    Console.WriteLine("--------------------------------------------------------------------------\n");
+
+        //}
+
+        #endregion
+
+
+        #region Extension Methods
+
+        /// <summary>
+        /// Takes individual cells and returns a formatted
+        /// string representing the grid.
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <returns></returns>
+        public static string ToConsoleFormattedString(this IGrid grid)
+        {
+            var builder = new StringBuilder();
+            for (var rowIndex = 0; rowIndex < grid.GridSize.Rows; rowIndex++)
+            {
+                for (var columnIndex = 0; columnIndex < grid.GridSize.Columns; columnIndex++)
+                {
+                    builder.Append(grid.GetCurrentCellInfo(new Position(rowIndex, columnIndex)).Alive
+                                       ? LiveCell
+                                       : DeadCell);
+                    builder.Append(Separator);
+                }
+                builder.Append(Environment.NewLine);
+            }
+
+            return builder.ToString();
+        }
+
+        /// <summary>
+        /// Parses a string specifying row and column index of a live 
+        /// <see cref="ICell"/> 
+        /// The format of the sting is rowIndex,colIndex | rowIndex,colIndex
+        /// and returns a <see cref="IGrid{ICell}"/> object containing <paramref name="numberofRows"/>
+        /// rows and <paramref name="numberOfcolumns"/>
+        /// </summary>
+        /// <param name="gridRowColumnString"></param>
+        /// <returns></returns>
+        public static IGridSize GetGridSize(this string gridRowColumnString)
+        {
+            gridRowColumnString = gridRowColumnString.Trim(' ', ColumnSeparator);
+            if (gridRowColumnString.Length != 0) //no alive cells
+            {
+                return ParseGridSize(gridRowColumnString);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Parses a string specifying row and column index of a live 
+        /// <see cref="ICell"/> 
+        /// The format of the sting is rowIndex,colIndex | rowIndex,colIndex
+        /// and returns a <see cref="IGrid{ICell}"/> object containing <paramref name="numberofRows"/>
+        /// rows and <paramref name="numberOfcolumns"/>
+        /// </summary>
+        /// <param name="gridRowColumnString"></param>
+        /// <param name="gridSize"> </param>
+        /// <returns></returns>
+        public static IEnumerable<ICell> ParseLiveCell(this string gridRowColumnString, IGridSize gridSize)
+        ]]></source>
+</chunk>
+<method name="ParseLiveCell" namespace="GameOfLife.Helpers" type="GameOfLife.Helpers.UiHelper" typeName="UiHelper" token="600000c" module="GameOfLife.Console.exe"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="5" value="1"/>
+<hit index="6" value="1"/>
+<hit index="8" value="1"/>
+<hit index="10" value="1"/>
+<hit index="11" value="1"/>
+<hit index="12" value="1"/>
+<hit index="13" value="1"/>
+<hit index="14" value="1"/>
+<hit index="15" value="1"/>
+<hit index="16" value="1"/>
+<hit index="17" value="1"/>
+<hit index="18" value="1"/>
+<hit index="19" value="1"/>
+<hit index="20" value="1"/>
+<hit index="21" value="1"/>
+<hit index="23" value="1"/>
+<hit index="24" value="1"/>
+<hit index="25" value="1"/>
+<hit index="26" value="1"/>
+<hit index="27" value="1"/>
+<hit index="28" value="1"/>
+<hit index="29" value="1"/>
+<hit index="30" value="1"/>
+<hit index="31" value="1"/>
+<hit index="33" value="1"/>
+<hit index="34" value="1"/>
+<hit index="35" value="1"/>
+<hit index="36" value="1"/>
+<hit index="37" value="1"/>
+<hit index="39" value="1"/>
+<hit index="40" value="1"/>
+<hit index="41" value="1"/>
+<hit index="42" value="1"/>
+<hit index="43" value="1"/>
+<hit index="44" value="1"/>
+<hit index="45" value="1"/>
+<hit index="47" value="1"/>
+<hit index="48" value="1"/>
+<hit index="51" value="1"/>
+<hit index="54" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="17" total="17" coveredRatio="1"/>
+</method>
+<chunk hits="2" offset="000f" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            //create a grid and initialize it with dead cells
+            //var grid = CreateGrid(numberofRows, numberOfcolumns);
+
+            ]]></source>
+</chunk>
+<chunk hits="2" offset="0010" domain="usercodeundertest"><source><![CDATA[var liveCells = new List<ICell>();]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0016" domain="usercodeundertest"><source><![CDATA[gridRowColumnString = gridRowColumnString.Trim(' ', RowSeparator);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0034" domain="usercodeundertest"><source><![CDATA[if (gridRowColumnString.Length != 0)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ //no alive cells
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0043" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="1" offset="0044" domain="usercodeundertest"><source><![CDATA[var rowColumnPairs = gridRowColumnString.Split(RowSeparator);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="1" offset="005b" domain="usercodeundertest"><source><![CDATA[liveCells.AddRange(
+                    rowColumnPairs.Select(rowColumnPair => ]]></source>
+</chunk>
+<method name="&lt;ParseLiveCell&gt;b__0" namespace="GameOfLife.Helpers" type="GameOfLife.Helpers.UiHelper+&lt;&gt;c__DisplayClass4" typeName="UiHelper+&lt;&gt;c__DisplayClass4" token="6000019" module="GameOfLife.Console.exe"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="5" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="2" coveredRatio="0.5"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[ParseCellPosition(rowColumnPair, gridSize)]]></source>
+</chunk>
+<chunk hits="1" offset="005b" domain="usercodeundertest"><source><![CDATA[).Select(
+                        cellPosition => new Cell(cellPosition, true)).Cast<ICell>());]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="00a4" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            ]]></source>
+</chunk>
+<chunk hits="2" offset="00a5" domain="usercodeundertest"><source><![CDATA[return liveCells;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="2" offset="00aa" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+        #endregion
+
+
+        #region Private Methods
+
+        private static IGridSize ParseGridSize(string rowColumnPair)
+        {
+            if (!rowColumnPair.Contains(ColumnSeparator)) //no valid row,col index pair
+            {
+                throw new ArgumentException(string.Format("The row column pair {0} has no rowColumn separator",
+                                                          rowColumnPair));
+            }
+
+            var cellIndex = rowColumnPair.Split(ColumnSeparator);
+            if (!cellIndex.Any()) //no valid row,col index
+            {
+                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));
+            }
+
+            int rowIndex;
+            if (!Int32.TryParse(cellIndex[0], out rowIndex) || rowIndex < 0)
+            {
+                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));
+            }
+
+            int colIndex;
+            if (!Int32.TryParse(cellIndex[1], out colIndex) || colIndex < 0)
+            {
+                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));
+            }
+
+            return new GridSize(rowIndex, colIndex);
+        }
+
+        private static IPosition ParseCellPosition(string rowColumnPair, IGridSize gridSize)
+        ]]></source>
+</chunk>
+<method name="ParseCellPosition" namespace="GameOfLife.Helpers" type="GameOfLife.Helpers.UiHelper" typeName="UiHelper" token="600000e" module="GameOfLife.Console.exe"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="5" value="1"/>
+<hit index="6" value="1"/>
+<hit index="8" value="1"/>
+<hit index="9" value="1"/>
+<hit index="11" value="1"/>
+<hit index="12" value="1"/>
+<hit index="13" value="1"/>
+<hit index="14" value="1"/>
+<hit index="15" value="1"/>
+<hit index="16" value="1"/>
+<hit index="17" value="1"/>
+<hit index="18" value="1"/>
+<hit index="19" value="1"/>
+<hit index="27" value="1"/>
+<hit index="28" value="1"/>
+<hit index="29" value="1"/>
+<hit index="30" value="1"/>
+<hit index="37" value="1"/>
+<hit index="38" value="1"/>
+<hit index="39" value="1"/>
+<hit index="40" value="1"/>
+<hit index="42" value="1"/>
+<hit index="43" value="1"/>
+<hit index="64" value="1"/>
+<hit index="65" value="1"/>
+<hit index="66" value="1"/>
+<hit index="75" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="14" total="31" coveredRatio="0.45161290322580644"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0001" domain="usercodeundertest"><source><![CDATA[if (!rowColumnPair.Contains(ColumnSeparator))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ //no valid row,col index pair
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="000f" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="1" offset="0010" domain="usercodeundertest"><source><![CDATA[throw new ArgumentException(string.Format("The row column pair {0} has no rowColumn separator",
+                                                          rowColumnPair));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            }
+
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0021" domain="usercodeundertest"><source><![CDATA[var cellIndex = rowColumnPair.Split(ColumnSeparator);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0038" domain="usercodeundertest"><source><![CDATA[if (!cellIndex.Any())]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ //no valid row,col index
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0044" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="0045" domain="usercodeundertest"><source><![CDATA[throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            }
+
+            int rowIndex;
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0056" domain="usercodeundertest"><source><![CDATA[if (!Int32.TryParse(cellIndex[0], out rowIndex) || rowIndex < 0 || rowIndex >= gridSize.Rows)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0078" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="1" offset="0079" domain="usercodeundertest"><source><![CDATA[throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            }
+
+            int colIndex;
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="008a" domain="usercodeundertest"><source><![CDATA[if (!Int32.TryParse(cellIndex[1], out colIndex) || colIndex < 0 || colIndex >= gridSize.Columns)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="00ac" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="00ad" domain="usercodeundertest"><source><![CDATA[throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            }
+
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="00be" domain="usercodeundertest"><source><![CDATA[return new Position(rowIndex, colIndex);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="00c8" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+        #endregion
+
+    }
+}]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Console, GameOfLife.Console.Tests)" missing="true"><method name=".ctor" type="GameOfLife.Helpers.UiHelper+&lt;&gt;c__DisplayClass4" token="6000018" module="GameOfLife.Console.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="ParseLiveCell" type="GameOfLife.Helpers.UiHelperTest" token="6000005" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+</document>
+</documents>

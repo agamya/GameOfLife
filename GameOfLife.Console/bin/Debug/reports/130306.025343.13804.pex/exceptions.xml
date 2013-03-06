@@ -1,0 +1,631 @@
+﻿<frameTree version="0.94.51023.0"><frameException type="System.ArgumentNullException"><tag exceptionState="unexpected"><generatedTestRef idref="f4ef8a88-521c-44ce-a488-6cf32c98af88"/>
+</tag>
+<frameNode><frame value="  at Grid..ctor(IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\Grid.cs(24)" method="Grid..ctor(IGridSize)" offset="29" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\Grid.cs" line="24"><method assemblyName="GameOfLife.Core" name=".ctor" token="600000c"><declaringType assemblyName="GameOfLife.Core" name="Grid" token="2000006" namespace="GameOfLife.Core"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Core" name="Grid" token="2000006" namespace="GameOfLife.Core"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public Grid(IGridSize gridSize)
+        {]]></beforeSource>
+<source><![CDATA[            if (gridSize == null) throw new ArgumentNullException("gridSize");]]></source>
+<afterSource><![CDATA[            GridSize = gridSize;
+            _gridStorage = new GridStorage(gridSize);
+        }]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="f4ef8a88-521c-44ce-a488-6cf32c98af88"/>
+</tag>
+<frameNode><frame value="  at GridHelper.CreateGrid(IGridSize, IEnumerable`1&lt;ICell&gt;) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\GridHelper.cs(11)" method="GridHelper.CreateGrid(IGridSize, IEnumerable`1&lt;ICell&gt;)" offset="2" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\GridHelper.cs" line="11"><method assemblyName="GameOfLife.Console" name="CreateGrid" static="true" token="6000010"><declaringType assemblyName="GameOfLife.Console" name="GridHelper" token="2000004" namespace="GameOfLife.Helpers"/>
+<parameter name="gridSize" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<parameter name="liveCells" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="GameOfLife.Contracts" name="ICell" token="2000002" namespace="GameOfLife.Contracts"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGrid" token="2000008" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[    {
+        public static IGrid CreateGrid(IGridSize gridSize,IEnumerable<ICell> liveCells)
+        {]]></beforeSource>
+<source><![CDATA[            var grid = new Grid(gridSize);]]></source>
+<afterSource><![CDATA[            //Mark all cells
+            foreach (var liveCell in liveCells)
+            {]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="f4ef8a88-521c-44ce-a488-6cf32c98af88"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameException>
+<frameException type="System.ArgumentException"><tag exceptionState="expected"><generatedTestRef idref="ac4f1a47-a2a6-4c02-9d3b-fa22785b811b"/>
+</tag>
+<frameNode><frame value="  at UiHelper.ParseGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(123)" method="UiHelper.ParseGridSize(String)" offset="131" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="123"><method assemblyName="GameOfLife.Console" name="ParseGridSize" static="true" token="600000d"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            int rowIndex;
+            if (!Int32.TryParse(cellIndex[0], out rowIndex) || rowIndex < 0)
+            {]]></beforeSource>
+<source><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));]]></source>
+<afterSource><![CDATA[            }
+
+            int colIndex;]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="ac4f1a47-a2a6-4c02-9d3b-fa22785b811b"/>
+<generatedTestRef idref="2204bc9d-9124-4e50-ac57-77c46889eaf1"/>
+<generatedTestRef idref="c79b65fd-6844-48fe-879e-64bec8d6134f"/>
+</tag>
+<frameNode><frame value="  at UiHelper.GetGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(68)" method="UiHelper.GetGridSize(String)" offset="57" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="68"><method assemblyName="GameOfLife.Console" name="GetGridSize" static="true" token="600000b"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            gridRowColumnString = gridRowColumnString.Trim(' ', ColumnSeparator);
+            if (gridRowColumnString.Length != 0) //no alive cells
+            {]]></beforeSource>
+<source><![CDATA[                return ParseGridSize(gridRowColumnString);]]></source>
+<afterSource><![CDATA[            }
+            return null;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="ac4f1a47-a2a6-4c02-9d3b-fa22785b811b"/>
+<generatedTestRef idref="2204bc9d-9124-4e50-ac57-77c46889eaf1"/>
+<generatedTestRef idref="c79b65fd-6844-48fe-879e-64bec8d6134f"/>
+</tag>
+</frameNode>
+</frameNode>
+<frameNode><frame value="  at UiHelper.ParseGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(110)" method="UiHelper.ParseGridSize(String)" offset="32" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="110"><method assemblyName="GameOfLife.Console" name="ParseGridSize" static="true" token="600000d"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[        {
+            if (!rowColumnPair.Contains(ColumnSeparator)) //no valid row,col index pair
+            {]]></beforeSource>
+<source><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} has no rowColumn separator",]]></source>
+<afterSource><![CDATA[                                                          rowColumnPair));
+            }
+]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="6500fdc2-5321-4b87-b830-df55a1fbb943"/>
+<generatedTestRef idref="b1eb80d2-4ea1-448b-b452-c4c8a763ea85"/>
+</tag>
+<frameNode><frame value="  at UiHelper.GetGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(68)" method="UiHelper.GetGridSize(String)" offset="57" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="68"><method assemblyName="GameOfLife.Console" name="GetGridSize" static="true" token="600000b"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            gridRowColumnString = gridRowColumnString.Trim(' ', ColumnSeparator);
+            if (gridRowColumnString.Length != 0) //no alive cells
+            {]]></beforeSource>
+<source><![CDATA[                return ParseGridSize(gridRowColumnString);]]></source>
+<afterSource><![CDATA[            }
+            return null;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="6500fdc2-5321-4b87-b830-df55a1fbb943"/>
+<generatedTestRef idref="b1eb80d2-4ea1-448b-b452-c4c8a763ea85"/>
+</tag>
+</frameNode>
+</frameNode>
+<frameNode><frame value="  at UiHelper.ParseGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(129)" method="UiHelper.ParseGridSize(String)" offset="177" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="129"><method assemblyName="GameOfLife.Console" name="ParseGridSize" static="true" token="600000d"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            int colIndex;
+            if (!Int32.TryParse(cellIndex[1], out colIndex) || colIndex < 0)
+            {]]></beforeSource>
+<source><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));]]></source>
+<afterSource><![CDATA[            }
+
+            return new GridSize(rowIndex, colIndex);]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="55ed4090-a393-4e91-b7ed-6c76157e71b2"/>
+<generatedTestRef idref="25f60cb0-397c-434d-ad40-ed1f97404b14"/>
+<generatedTestRef idref="5c6c136f-3b81-4b7b-8ffd-11a4ec9cf4bf"/>
+<generatedTestRef idref="33da9a8b-b8a8-4524-adee-dd8c6e6d9388"/>
+</tag>
+<frameNode><frame value="  at UiHelper.GetGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(68)" method="UiHelper.GetGridSize(String)" offset="57" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="68"><method assemblyName="GameOfLife.Console" name="GetGridSize" static="true" token="600000b"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            gridRowColumnString = gridRowColumnString.Trim(' ', ColumnSeparator);
+            if (gridRowColumnString.Length != 0) //no alive cells
+            {]]></beforeSource>
+<source><![CDATA[                return ParseGridSize(gridRowColumnString);]]></source>
+<afterSource><![CDATA[            }
+            return null;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="55ed4090-a393-4e91-b7ed-6c76157e71b2"/>
+<generatedTestRef idref="25f60cb0-397c-434d-ad40-ed1f97404b14"/>
+<generatedTestRef idref="5c6c136f-3b81-4b7b-8ffd-11a4ec9cf4bf"/>
+<generatedTestRef idref="33da9a8b-b8a8-4524-adee-dd8c6e6d9388"/>
+</tag>
+</frameNode>
+</frameNode>
+<frameNode><frame value="  at UiHelper.ParseCellPosition(String, IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(139)" method="UiHelper.ParseCellPosition(String, IGridSize)" offset="32" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="139"><method assemblyName="GameOfLife.Console" name="ParseCellPosition" static="true" token="600000e"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IPosition" token="2000005" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[        {
+            if (!rowColumnPair.Contains(ColumnSeparator)) //no valid row,col index pair
+            {]]></beforeSource>
+<source><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} has no rowColumn separator",]]></source>
+<afterSource><![CDATA[                                                          rowColumnPair));
+            }
+]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+<frameNode><frame value="  at &lt;&gt;c__DisplayClass4.&lt;ParseLiveCell&gt;b__0(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(94)" method="&lt;&gt;c__DisplayClass4.&lt;ParseLiveCell&gt;b__0(String)" offset="7" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="94"><method assemblyName="GameOfLife.Console" name="&lt;ParseLiveCell&gt;b__0" token="6000015"><declaringType assemblyName="GameOfLife.Console" name="&lt;&gt;c__DisplayClass4" token="2000006"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Console" name="&lt;&gt;c__DisplayClass4" token="2000006"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+</definition>
+</type>
+</parameter>
+<parameter name="rowColumnPair" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IPosition" token="2000005" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            {
+                var rowColumnPairs = gridRowColumnString.Split(RowSeparator);
+                liveCells.AddRange(]]></beforeSource>
+<source><![CDATA[                    rowColumnPairs.Select(rowColumnPair => ParseCellPosition(rowColumnPair, gridSize)).Select(]]></source>
+<afterSource><![CDATA[                        cellPosition => new Cell(cellPosition, true)).Cast<ICell>());
+            }
+]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+<frameNode><frame value="  at &lt;&gt;c__DisplayClass12`3.&lt;CombineSelectors&gt;b__11(!0)" method="&lt;&gt;c__DisplayClass12`3.&lt;CombineSelectors&gt;b__11(!0)" offset="13"><method assemblyName="System.Core" name="&lt;CombineSelectors&gt;b__11" token="600141d"><declaringType assemblyName="System.Core" name="&lt;&gt;c__DisplayClass12`3" token="2000234"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TMiddle"/>
+<genericParameter value="TResult"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="System.Core" name="&lt;&gt;c__DisplayClass12`3" token="2000234"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TMiddle"/>
+<genericParameter value="TResult"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+<genericTypeArgument spec="GenericTypeParameter" index="1"/>
+<genericTypeArgument spec="GenericTypeParameter" index="2"/>
+</type>
+</parameter>
+<parameter name="x" position="1"><type spec="GenericTypeParameter" index="0"/>
+</parameter>
+<resultType spec="GenericTypeParameter" index="2"/>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+<frameNode><frame value="  at WhereSelectArrayIterator`2.MoveNext()" method="WhereSelectArrayIterator`2.MoveNext()" offset="73"><method assemblyName="System.Core" name="MoveNext" token="60004d5"><declaringType assemblyName="System.Core" name="WhereSelectArrayIterator`2" token="2000052"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TResult"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="System.Core" name="WhereSelectArrayIterator`2" token="2000052"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TResult"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+<genericTypeArgument spec="GenericTypeParameter" index="1"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009e" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+<frameNode><frame value="  at List`1.InsertRange(Int32, IEnumerable`1&lt;!0&gt;)" method="List`1.InsertRange(Int32, IEnumerable`1&lt;!0&gt;)" offset="235"><method assemblyName="mscorlib" name="InsertRange" token="600726f"><declaringType assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+<parameter position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter position="2"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+<frameNode><frame value="  at List`1.AddRange(IEnumerable`1&lt;!0&gt;)" method="List`1.AddRange(IEnumerable`1&lt;!0&gt;)" offset="8"><method assemblyName="mscorlib" name="AddRange" token="600724c"><declaringType assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+<parameter position="1"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+<frameNode><frame value="  at UiHelper.ParseLiveCell(String, IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(93)" method="UiHelper.ParseLiveCell(String, IGridSize)" offset="158" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="93"><method assemblyName="GameOfLife.Console" name="ParseLiveCell" static="true" token="600000c"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="GameOfLife.Contracts" name="ICell" token="2000002" namespace="GameOfLife.Contracts"/>
+</genericTypeArgument>
+</resultType>
+</method>
+<beforeSource><![CDATA[            if (gridRowColumnString.Length != 0) //no alive cells
+            {
+                var rowColumnPairs = gridRowColumnString.Split(RowSeparator);]]></beforeSource>
+<source><![CDATA[                liveCells.AddRange(]]></source>
+<afterSource><![CDATA[                    rowColumnPairs.Select(rowColumnPair => ParseCellPosition(rowColumnPair, gridSize)).Select(
+                        cellPosition => new Cell(cellPosition, true)).Cast<ICell>());
+            }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="25ee6429-fd4d-4309-bc23-349d2a4f492e"/>
+<generatedTestRef idref="ea9a5b60-6056-4643-b4b1-b31b423b9199"/>
+<generatedTestRef idref="1e7a4a4a-eae2-4762-8381-7ad2e7d3adce"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+<frameNode><frame value="  at UiHelper.ParseCellPosition(String, IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(152)" method="UiHelper.ParseCellPosition(String, IGridSize)" offset="137" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="152"><method assemblyName="GameOfLife.Console" name="ParseCellPosition" static="true" token="600000e"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IPosition" token="2000005" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            int rowIndex;
+            if (!Int32.TryParse(cellIndex[0], out rowIndex) || rowIndex < 0 || rowIndex >= gridSize.Rows)
+            {]]></beforeSource>
+<source><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));]]></source>
+<afterSource><![CDATA[            }
+
+            int colIndex;]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+<frameNode><frame value="  at &lt;&gt;c__DisplayClass4.&lt;ParseLiveCell&gt;b__0(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(94)" method="&lt;&gt;c__DisplayClass4.&lt;ParseLiveCell&gt;b__0(String)" offset="7" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="94"><method assemblyName="GameOfLife.Console" name="&lt;ParseLiveCell&gt;b__0" token="6000015"><declaringType assemblyName="GameOfLife.Console" name="&lt;&gt;c__DisplayClass4" token="2000006"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Console" name="&lt;&gt;c__DisplayClass4" token="2000006"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+</definition>
+</type>
+</parameter>
+<parameter name="rowColumnPair" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IPosition" token="2000005" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            {
+                var rowColumnPairs = gridRowColumnString.Split(RowSeparator);
+                liveCells.AddRange(]]></beforeSource>
+<source><![CDATA[                    rowColumnPairs.Select(rowColumnPair => ParseCellPosition(rowColumnPair, gridSize)).Select(]]></source>
+<afterSource><![CDATA[                        cellPosition => new Cell(cellPosition, true)).Cast<ICell>());
+            }
+]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+<frameNode><frame value="  at &lt;&gt;c__DisplayClass12`3.&lt;CombineSelectors&gt;b__11(!0)" method="&lt;&gt;c__DisplayClass12`3.&lt;CombineSelectors&gt;b__11(!0)" offset="13"><method assemblyName="System.Core" name="&lt;CombineSelectors&gt;b__11" token="600141d"><declaringType assemblyName="System.Core" name="&lt;&gt;c__DisplayClass12`3" token="2000234"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TMiddle"/>
+<genericParameter value="TResult"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="System.Core" name="&lt;&gt;c__DisplayClass12`3" token="2000234"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TMiddle"/>
+<genericParameter value="TResult"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+<genericTypeArgument spec="GenericTypeParameter" index="1"/>
+<genericTypeArgument spec="GenericTypeParameter" index="2"/>
+</type>
+</parameter>
+<parameter name="x" position="1"><type spec="GenericTypeParameter" index="0"/>
+</parameter>
+<resultType spec="GenericTypeParameter" index="2"/>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+<frameNode><frame value="  at WhereSelectArrayIterator`2.MoveNext()" method="WhereSelectArrayIterator`2.MoveNext()" offset="73"><method assemblyName="System.Core" name="MoveNext" token="60004d5"><declaringType assemblyName="System.Core" name="WhereSelectArrayIterator`2" token="2000052"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TResult"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="System.Core" name="WhereSelectArrayIterator`2" token="2000052"><declaringType assemblyName="System.Core" name="Enumerable" token="200004c" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TResult"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+<genericTypeArgument spec="GenericTypeParameter" index="1"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009e" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+<frameNode><frame value="  at List`1.InsertRange(Int32, IEnumerable`1&lt;!0&gt;)" method="List`1.InsertRange(Int32, IEnumerable`1&lt;!0&gt;)" offset="235"><method assemblyName="mscorlib" name="InsertRange" token="600726f"><declaringType assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+<parameter position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter position="2"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+<frameNode><frame value="  at List`1.AddRange(IEnumerable`1&lt;!0&gt;)" method="List`1.AddRange(IEnumerable`1&lt;!0&gt;)" offset="8"><method assemblyName="mscorlib" name="AddRange" token="600724c"><declaringType assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="List`1" token="2000362" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+<parameter position="1"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+<frameNode><frame value="  at UiHelper.ParseLiveCell(String, IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(93)" method="UiHelper.ParseLiveCell(String, IGridSize)" offset="158" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="93"><method assemblyName="GameOfLife.Console" name="ParseLiveCell" static="true" token="600000c"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="GameOfLife.Contracts" name="ICell" token="2000002" namespace="GameOfLife.Contracts"/>
+</genericTypeArgument>
+</resultType>
+</method>
+<beforeSource><![CDATA[            if (gridRowColumnString.Length != 0) //no alive cells
+            {
+                var rowColumnPairs = gridRowColumnString.Split(RowSeparator);]]></beforeSource>
+<source><![CDATA[                liveCells.AddRange(]]></source>
+<afterSource><![CDATA[                    rowColumnPairs.Select(rowColumnPair => ParseCellPosition(rowColumnPair, gridSize)).Select(
+                        cellPosition => new Cell(cellPosition, true)).Cast<ICell>());
+            }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="de958f47-94a4-4e2e-b09e-3aea5d3c1494"/>
+<generatedTestRef idref="08fdfd2c-10c7-4684-9f22-eb56e82c7e98"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameException>
+<frameException type="System.ArgumentOutOfRangeException"><tag exceptionState="unexpected"><generatedTestRef idref="eddc4f53-7428-4a28-a007-8db502b42d0d"/>
+</tag>
+<frameNode><frame value="  at GridSize..ctor(Int32, Int32) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs(19)" method="GridSize..ctor(Int32, Int32)" offset="55" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs" line="19"><method assemblyName="GameOfLife.Models" name=".ctor" token="6000005"><declaringType assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="rows" position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter name="columns" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        public GridSize(int rows, int columns)
+        {
+            if (rows <= 0) throw new ArgumentOutOfRangeException("rows", "rows value must be > 0");]]></beforeSource>
+<source><![CDATA[            if (columns <= 0) throw new ArgumentOutOfRangeException("columns", "columns value must be > 0");]]></source>
+<afterSource><![CDATA[            Rows = rows;
+            Columns = columns;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="eddc4f53-7428-4a28-a007-8db502b42d0d"/>
+</tag>
+<frameNode><frame value="  at UiHelper.ParseGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(132)" method="UiHelper.ParseGridSize(String)" offset="180" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="132"><method assemblyName="GameOfLife.Console" name="ParseGridSize" static="true" token="600000d"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));
+            }
+]]></beforeSource>
+<source><![CDATA[            return new GridSize(rowIndex, colIndex);]]></source>
+<afterSource><![CDATA[        }
+
+        private static IPosition ParseCellPosition(string rowColumnPair, IGridSize gridSize)]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="eddc4f53-7428-4a28-a007-8db502b42d0d"/>
+</tag>
+<frameNode><frame value="  at UiHelper.GetGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(68)" method="UiHelper.GetGridSize(String)" offset="57" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="68"><method assemblyName="GameOfLife.Console" name="GetGridSize" static="true" token="600000b"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            gridRowColumnString = gridRowColumnString.Trim(' ', ColumnSeparator);
+            if (gridRowColumnString.Length != 0) //no alive cells
+            {]]></beforeSource>
+<source><![CDATA[                return ParseGridSize(gridRowColumnString);]]></source>
+<afterSource><![CDATA[            }
+            return null;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="eddc4f53-7428-4a28-a007-8db502b42d0d"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+<frameNode><frame value="  at GridSize..ctor(Int32, Int32) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs(18)" method="GridSize..ctor(Int32, Int32)" offset="31" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs" line="18"><method assemblyName="GameOfLife.Models" name=".ctor" token="6000005"><declaringType assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="rows" position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter name="columns" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public GridSize(int rows, int columns)
+        {]]></beforeSource>
+<source><![CDATA[            if (rows <= 0) throw new ArgumentOutOfRangeException("rows", "rows value must be > 0");]]></source>
+<afterSource><![CDATA[            if (columns <= 0) throw new ArgumentOutOfRangeException("columns", "columns value must be > 0");
+            Rows = rows;
+            Columns = columns;]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="7058fe82-3427-410b-b770-fb4bb151a52c"/>
+</tag>
+<frameNode><frame value="  at UiHelper.ParseGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(132)" method="UiHelper.ParseGridSize(String)" offset="180" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="132"><method assemblyName="GameOfLife.Console" name="ParseGridSize" static="true" token="600000d"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="rowColumnPair" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[                throw new ArgumentException(string.Format("The row column pair {0} is not valid", rowColumnPair));
+            }
+]]></beforeSource>
+<source><![CDATA[            return new GridSize(rowIndex, colIndex);]]></source>
+<afterSource><![CDATA[        }
+
+        private static IPosition ParseCellPosition(string rowColumnPair, IGridSize gridSize)]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="7058fe82-3427-410b-b770-fb4bb151a52c"/>
+</tag>
+<frameNode><frame value="  at UiHelper.GetGridSize(String) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(68)" method="UiHelper.GetGridSize(String)" offset="57" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="68"><method assemblyName="GameOfLife.Console" name="GetGridSize" static="true" token="600000b"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[            gridRowColumnString = gridRowColumnString.Trim(' ', ColumnSeparator);
+            if (gridRowColumnString.Length != 0) //no alive cells
+            {]]></beforeSource>
+<source><![CDATA[                return ParseGridSize(gridRowColumnString);]]></source>
+<afterSource><![CDATA[            }
+            return null;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="7058fe82-3427-410b-b770-fb4bb151a52c"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameException>
+<frameException type="System.NullReferenceException"><tag exceptionState="unexpected"><generatedTestRef idref="e2a71dc1-6f78-4ed4-a55b-9c6c1d8b845b"/>
+</tag>
+<frameNode><frame value="  at UiHelper.ParseLiveCell(String, IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs(89)" method="UiHelper.ParseLiveCell(String, IGridSize)" offset="45" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\UIHelper.cs" line="89"><method assemblyName="GameOfLife.Console" name="ParseLiveCell" static="true" token="600000c"><declaringType assemblyName="GameOfLife.Console" name="UiHelper" token="2000003" namespace="GameOfLife.Helpers"/>
+<parameter name="gridRowColumnString" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004c" namespace="System"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="2000036" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="GameOfLife.Contracts" name="ICell" token="2000002" namespace="GameOfLife.Contracts"/>
+</genericTypeArgument>
+</resultType>
+</method>
+<beforeSource><![CDATA[            //var grid = CreateGrid(numberofRows, numberOfcolumns);
+
+            var liveCells = new List<ICell>();]]></beforeSource>
+<source><![CDATA[            gridRowColumnString = gridRowColumnString.Trim(' ', RowSeparator);]]></source>
+<afterSource><![CDATA[            if (gridRowColumnString.Length != 0) //no alive cells
+            {
+                var rowColumnPairs = gridRowColumnString.Split(RowSeparator);]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="e2a71dc1-6f78-4ed4-a55b-9c6c1d8b845b"/>
+</tag>
+</frameNode>
+</frameException>
+</frameTree>

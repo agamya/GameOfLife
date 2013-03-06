@@ -1,0 +1,7 @@
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Library.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Library.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Contracts.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Contracts.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\obj\Debug\GameOfLife.Library.csprojResolveAssemblyReference.cache
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\obj\Debug\GameOfLife.Library.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\obj\Debug\GameOfLife.Library.pdb

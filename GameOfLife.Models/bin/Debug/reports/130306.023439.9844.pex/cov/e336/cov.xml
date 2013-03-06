@@ -1,0 +1,69 @@
+﻿<documents created="2013-03-05 21:04:46Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridPosition.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[namespace GameOfLife.Models
+{
+    #region Using Statements
+
+    using System;
+    using Contracts;
+
+    #endregion
+
+    public class GridPosition : IGridPosition
+    {
+        public int Row { get; private set; }
+
+        public int Column { get; private set; }
+
+        ]]></source>
+</chunk>
+<method name=".ctor" namespace="GameOfLife.Models" type="GameOfLife.Models.GridPosition" typeName="GridPosition" token="600000a" module="GameOfLife.Models.dll"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="6" value="1"/>
+<hit index="7" value="1"/>
+<hit index="22" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="4" total="9" coveredRatio="0.44444444444444442"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[public GridPosition(IPosition position)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0007" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0008" domain="usercodeundertest"><source><![CDATA[if (position == null)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="1" offset="0013" domain="usercodeundertest"><source><![CDATA[throw new ArgumentNullException("position");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="001e" domain="usercodeundertest"><source><![CDATA[Row = position.Row;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="002b" domain="usercodeundertest"><source><![CDATA[Column = position.Column;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="0038" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+    }
+}]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Models.Tests)" missing="true"><method name="Constructor" type="GameOfLife.Models.GridPositionTest" token="6000003" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="2" coveredRatio="0.5"/>
+</method>
+</document>
+</documents>

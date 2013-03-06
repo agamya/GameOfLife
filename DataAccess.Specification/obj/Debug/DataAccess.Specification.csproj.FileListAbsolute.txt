@@ -1,0 +1,9 @@
+F:\Ajay\Test Projects\GameOfLife\DataAccess.Specification\bin\Debug\DataAccess.Specification.dll
+F:\Ajay\Test Projects\GameOfLife\DataAccess.Specification\bin\Debug\DataAccess.Specification.pdb
+F:\Ajay\Test Projects\GameOfLife\DataAccess.Specification\obj\Debug\DataAccess.Specification.dll
+F:\Ajay\Test Projects\GameOfLife\DataAccess.Specification\obj\Debug\DataAccess.Specification.pdb
+F:\Ajay\Test Projects\GameOfLife\DataAccess.Specification\obj\Debug\DataAccess.Specification.csprojResolveAssemblyReference.cache
+F:\Ajay\Test Projects\GameOfLife - New\DataAccess.Specification\bin\Debug\DataAccess.Specification.dll
+F:\Ajay\Test Projects\GameOfLife - New\DataAccess.Specification\bin\Debug\DataAccess.Specification.pdb
+F:\Ajay\Test Projects\GameOfLife - New\DataAccess.Specification\obj\Debug\DataAccess.Specification.dll
+F:\Ajay\Test Projects\GameOfLife - New\DataAccess.Specification\obj\Debug\DataAccess.Specification.pdb

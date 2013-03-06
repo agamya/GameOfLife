@@ -1,0 +1,47 @@
+﻿<frameTree version="0.94.51023.0"><frameException type="System.ArgumentNullException"><tag exceptionState="expected"><generatedTestRef idref="8c041bc9-c43d-4cc8-a1e2-b1db7a22f3e3"/>
+</tag>
+<frameNode><frame value="  at GameRules.WillBeAliveInNextGeneration(IGrid, ICell) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\GameRules.cs(19)" method="GameRules.WillBeAliveInNextGeneration(IGrid, ICell)" offset="22" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\GameRules.cs" line="19"><method assemblyName="GameOfLife.Core" name="WillBeAliveInNextGeneration" token="6000018"><declaringType assemblyName="GameOfLife.Core" name="GameRules" token="2000007" namespace="GameOfLife.Core"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Core" name="GameRules" token="2000007" namespace="GameOfLife.Core"/>
+</type>
+</parameter>
+<parameter name="grid" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGrid" token="2000008" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<parameter name="cell" position="2"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="ICell" token="2000002" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009e" namespace="System"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[
+        public bool WillBeAliveInNextGeneration(IGrid grid, ICell cell)
+        {]]></beforeSource>
+<source><![CDATA[            if (cell == null) throw new ArgumentNullException("cell");]]></source>
+<afterSource><![CDATA[            if (IsOverCrowded(grid,cell))
+            {
+                //Any live cell with more than three live neighbours dies, as if by overcrowding.]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="8c041bc9-c43d-4cc8-a1e2-b1db7a22f3e3"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at Grid..ctor(IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\Grid.cs(24)" method="Grid..ctor(IGridSize)" offset="29" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\Grid.cs" line="24"><method assemblyName="GameOfLife.Core" name=".ctor" token="600000c"><declaringType assemblyName="GameOfLife.Core" name="Grid" token="2000006" namespace="GameOfLife.Core"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Core" name="Grid" token="2000006" namespace="GameOfLife.Core"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public Grid(IGridSize gridSize)
+        {]]></beforeSource>
+<source><![CDATA[            if (gridSize == null) throw new ArgumentNullException("gridSize");]]></source>
+<afterSource><![CDATA[            GridSize = gridSize;
+            _gridStorage = new GridStorage(gridSize);
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="dc6013bb-28dc-4240-8fc5-db55914c1f6a"/>
+</tag>
+</frameNode>
+</frameException>
+</frameTree>

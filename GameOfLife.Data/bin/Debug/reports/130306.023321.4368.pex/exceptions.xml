@@ -1,0 +1,23 @@
+﻿<frameTree version="0.94.51023.0"><frameException type="System.ArgumentNullException"><tag exceptionState="expected"><generatedTestRef idref="a863d44b-a50a-4080-aca3-6a3b6b52cfab"/>
+</tag>
+<frameNode><frame value="  at GridStorage..ctor(IGridSize) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\GridStorage.cs(28)" method="GridStorage..ctor(IGridSize)" offset="29" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\GridStorage.cs" line="28"><method assemblyName="GameOfLife.Data" name=".ctor" token="6000001"><declaringType assemblyName="GameOfLife.Data" name="GridStorage" token="2000002" namespace="GameOfLife.Data"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Data" name="GridStorage" token="2000002" namespace="GameOfLife.Data"/>
+</type>
+</parameter>
+<parameter name="gridSize" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IGridSize" token="2000006" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public GridStorage(IGridSize gridSize)
+        {]]></beforeSource>
+<source><![CDATA[            if (gridSize == null) throw new ArgumentNullException("gridSize");]]></source>
+<afterSource><![CDATA[            _gridSize = gridSize;
+            _gridDataContainer = new bool[gridSize.Rows,gridSize.Columns];
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="a863d44b-a50a-4080-aca3-6a3b6b52cfab"/>
+</tag>
+</frameNode>
+</frameException>
+</frameTree>

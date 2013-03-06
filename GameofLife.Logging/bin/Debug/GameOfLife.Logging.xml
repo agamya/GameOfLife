@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameOfLife.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:GameofLife.Logging.ApplicationLogger">
+            <summary>
+            This class provides a wrapper over Microsoft Logging Application 
+            Block for doing logging in the application.
+            </summary>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.WriteLogEntry(System.Int32,System.String,System.Collections.Generic.ICollection{GameofLife.Logging.LogCategory},System.Diagnostics.TraceEventType,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            This method is responsible for creating the LogEntry object setting the appropriate properties 
+            and write the logEntry using Logger.Write() method.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from some resource file.</param>
+            <param name="message">Log message that needs to be logged.</param>
+            <param name="logCategories">List of categories which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="extendedLogMessage">Extra parameters that need to be logged in.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.GetPriority(System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is responsible for returning the Priority
+            associated with the severity of the log message.
+            </summary>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <returns>int: Priority of the message.</returns>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.GetMessageFromResource(System.Int32)">
+            <summary>
+            This method is used to retrieve the message
+            associated with an eventID from the resource file.
+            </summary>
+            <param name="eventId">ID of the event.</param>
+            <returns>string: Message associated with the eventId.</returns>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="category">List of categories which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType,GameofLife.Logging.Source)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="category">List of categories which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="source">Source of the log message. E.g. MIIS, Web Service, etc.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType,GameofLife.Logging.Source)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="source">Source of the log message. E.g. MIIS, Web Service, etc.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,System.Guid,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="requestId">ID of the request related to which log message is logged.</param>
+            <param name="actionPerformedBy">Alias of the user who logged this message.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,System.Guid,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType,GameofLife.Logging.Source)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="requestId">ID of the request related to which log message is logged.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="source">Source of the log message. E.g. MIIS, Web Service, etc.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,System.String,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType,GameofLife.Logging.Source)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="actionPerformedBy">Alias of the user who logged this message.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="source">Source of the log message. E.g. MIIS, Web Service, etc.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogMessage(System.Int32,System.Guid,System.String,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="requestId">ID of the request related to which log message is logged.</param>
+            <param name="actionPerformedBy">Alias of the user who logged this message.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogException(System.Int32,System.Exception,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="ex">Exception object that needs to be logged in.</param>
+            <param name="category">a category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogException(System.Int32,System.Exception,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="ex">Exception object that needs to be logged in.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogException(System.Int32,System.Exception,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType,GameofLife.Logging.Source)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="ex">Exception object that needs to be logged in.</param>        
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="source">Source of the log message. E.g. MIIS, Web Service, etc.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogException(System.Int32,System.Exception,System.Guid,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="ex">Exception object that needs to be logged in.</param>
+            <param name="requestId">ID of the request related to which log message is logged.</param>
+            <param name="actionPerformedBy">Alias of the user who logged this message.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogException(System.Int32,System.Exception,System.Guid,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType,GameofLife.Logging.Source)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="ex">Exception object that needs to be logged in.</param>
+            <param name="requestId">ID of the request related to which log message is logged.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+            <param name="source">Source of the log message. E.g. MIIS, Web Service, etc.</param>
+        </member>
+        <member name="M:GameofLife.Logging.ApplicationLogger.LogException(System.Int32,System.Exception,System.Guid,System.String,System.String,GameofLife.Logging.LogCategory,System.Diagnostics.TraceEventType)">
+            <summary>
+            This method is used to Log any message in the Application.
+            </summary>
+            <param name="eventId">Id of the event. Based on which the message will be retrieved from resource file.</param>
+            <param name="ex">Exception object that needs to be logged in.</param>
+            <param name="requestId">ID of the request related to which log message is logged.</param>
+            <param name="actionPerformedBy">Alias of the user who logged this message.</param>
+            <param name="message">Some extra information / message that user will like to log.</param>
+            <param name="category">A category which will determine where the message will get logged.</param>
+            <param name="severity">Severity of the message. (Information / Warning / Error)</param>
+        </member>
+        <member name="T:GameofLife.Logging.Source">
+            <summary>
+            This enum corresponds to the categories, configured in Enterprise Library for logging,
+            that decide about the destination of the log message.
+            </summary>
+        </member>
+        <member name="F:GameofLife.Logging.Source.Trace">
+            <summary>
+            Trace information
+            </summary>
+        </member>
+        <member name="F:GameofLife.Logging.Source.Audit">
+            <summary>
+            Information related to some kind of audit.
+            </summary>
+        </member>
+        <member name="F:GameofLife.Logging.Source.Exception">
+            <summary>
+            Information about exceptions
+            </summary>
+        </member>
+        <member name="T:GameofLife.Logging.LogCategory">
+            <summary>
+            This enum corresponds to all the possible sources
+            of log messages in the application.
+            </summary>
+        </member>
+        <member name="F:GameofLife.Logging.LogCategory.Presentation">
+            <summary>
+            If message is from Presentation tier
+            </summary>
+        </member>
+        <member name="F:GameofLife.Logging.LogCategory.Business">
+            <summary>
+            If message is from Business tier
+            </summary>
+        </member>
+        <member name="F:GameofLife.Logging.LogCategory.DataAccess">
+            <summary>
+            If message is from DataAccess tier
+            </summary>
+        </member>
+        <member name="T:GameOfLife.Logging.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GameOfLife.Logging.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GameOfLife.Logging.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

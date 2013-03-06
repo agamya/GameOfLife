@@ -1,0 +1,26 @@
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Core.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Core.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\DataAccess.Specification.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Contracts.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Data.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Models.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\DataAccess.Specification.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Contracts.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Data.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\bin\Debug\GameOfLife.Models.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\obj\Debug\GameOfLife.Core.csprojResolveAssemblyReference.cache
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\obj\Debug\GameOfLife.Core.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\obj\Debug\GameOfLife.Core.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Core.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Core.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\DataAccess.Specification.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Contracts.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Data.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Models.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\DataAccess.Specification.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Contracts.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Data.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\bin\Debug\GameOfLife.Models.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\obj\Debug\GameOfLife.Core.csprojResolveAssemblyReference.cache
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\obj\Debug\GameOfLife.Core.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Core\obj\Debug\GameOfLife.Core.pdb

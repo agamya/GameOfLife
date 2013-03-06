@@ -1,0 +1,106 @@
+﻿<documents created="2013-03-05 19:37:33Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\Generation.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[using GameOfLife.Contracts;
+
+namespace GameOfLife.Core
+{
+    /// <summary>
+    /// Implement Game of life generation (simualtion) algorithms                                                                                      
+    /// </summary>
+    public class Generation : IGeneration
+    {
+        /// <summary>
+        /// By applying game rules get the next genertion grid instance
+        /// </summary>
+        /// <param name="currentGrid">Grid on which games rules</param>
+        /// <param name="gameRules"> </param>
+        /// <returns>Evolved grid instance</returns>
+        public IGrid GetNextGeneration(IGrid currentGrid,IGameRules gameRules)
+        ]]></source>
+</chunk>
+<method name="GetNextGeneration" namespace="GameOfLife.Core" type="GameOfLife.Core.Generation" typeName="Generation" token="6000001" module="GameOfLife.Core.dll"><hits><hit index="0" value="1"/>
+<hit index="48" value="1"/>
+<hit index="49" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="3" total="18" coveredRatio="0.16666666666666666"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0001" domain="usercodeundertest"><source><![CDATA[if (currentGrid!=null && gameRules!=null)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="000f" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="0010" domain="usercodeundertest"><source><![CDATA[var gridCopy = currentGrid.Copy(currentGrid);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="0018" domain="usercodeundertest"><source><![CDATA[foreach]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ (]]></source>
+</chunk>
+<chunk hits="0" offset="0028" domain="usercodeundertest"><source><![CDATA[var cell]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="0049" domain="usercodeundertest"><source><![CDATA[in]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="0019" domain="usercodeundertest"><source><![CDATA[currentGrid.GetAllCurrentCellInfo()]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[)
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="0030" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="0031" domain="usercodeundertest"><source><![CDATA[cell.Alive = gameRules.WillBeAliveInNextGeneration(gridCopy, cell);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="0040" domain="usercodeundertest"><source><![CDATA[gridCopy.MakeCell(cell);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="0048" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="0069" domain="usercodeundertest"><source><![CDATA[return gridCopy;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            }
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="006d" domain="usercodeundertest"><source><![CDATA[return null;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0071" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+    }
+}
+]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Core.Tests)" missing="true"><method name="GetNextGeneration" type="GameOfLife.Core.GenerationTest" token="6000001" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+</document>
+</documents>

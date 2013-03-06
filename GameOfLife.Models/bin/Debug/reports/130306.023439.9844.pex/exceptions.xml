@@ -1,0 +1,136 @@
+﻿<frameTree version="0.94.51023.0"><frameException type="System.ArgumentNullException"><tag exceptionState="expected"><generatedTestRef idref="01715958-c802-43e8-bb4d-6b73cb976ef1"/>
+</tag>
+<frameNode><frame value="  at Cell..ctor(IPosition, Boolean) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\Cell.cs(23)" method="Cell..ctor(IPosition, Boolean)" offset="29" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\Cell.cs" line="23"><method assemblyName="GameOfLife.Models" name=".ctor" token="6000015"><declaringType assemblyName="GameOfLife.Models" name="Cell" token="2000005" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="Cell" token="2000005" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="position" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IPosition" token="2000005" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+<parameter name="alive" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009e" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public Cell(IPosition position, bool  alive)
+        {]]></beforeSource>
+<source><![CDATA[            if (position == null) throw new ArgumentNullException("position");]]></source>
+<afterSource><![CDATA[            Position = position;
+            Alive = alive;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="01715958-c802-43e8-bb4d-6b73cb976ef1"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at GridPosition..ctor(IPosition) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridPosition.cs(18)" method="GridPosition..ctor(IPosition)" offset="29" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridPosition.cs" line="18"><method assemblyName="GameOfLife.Models" name=".ctor" token="600000a"><declaringType assemblyName="GameOfLife.Models" name="GridPosition" token="2000003" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="GridPosition" token="2000003" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="position" position="1"><type spec="Class"><definition assemblyName="GameOfLife.Contracts" name="IPosition" token="2000005" namespace="GameOfLife.Contracts"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public GridPosition(IPosition position)
+        {]]></beforeSource>
+<source><![CDATA[            if (position == null) throw new ArgumentNullException("position");]]></source>
+<afterSource><![CDATA[            Row = position.Row;
+            Column = position.Column;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5f5db160-1d32-4e26-bff3-59bd9b5040fd"/>
+</tag>
+</frameNode>
+</frameException>
+<frameException type="System.ArgumentOutOfRangeException"><tag exceptionState="expected"><generatedTestRef idref="c516b09d-ceb0-489c-aa92-46ca459fb782"/>
+</tag>
+<frameNode><frame value="  at GridSize..ctor(Int32, Int32) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs(18)" method="GridSize..ctor(Int32, Int32)" offset="31" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs" line="18"><method assemblyName="GameOfLife.Models" name=".ctor" token="6000005"><declaringType assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="rows" position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter name="columns" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public GridSize(int rows, int columns)
+        {]]></beforeSource>
+<source><![CDATA[            if (rows <= 0) throw new ArgumentOutOfRangeException("rows", "rows value must be > 0");]]></source>
+<afterSource><![CDATA[            if (columns <= 0) throw new ArgumentOutOfRangeException("columns", "columns value must be > 0");
+            Rows = rows;
+            Columns = columns;]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="c516b09d-ceb0-489c-aa92-46ca459fb782"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at GridSize..ctor(Int32, Int32) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs(19)" method="GridSize..ctor(Int32, Int32)" offset="55" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs" line="19"><method assemblyName="GameOfLife.Models" name=".ctor" token="6000005"><declaringType assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="GridSize" token="2000002" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="rows" position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter name="columns" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        public GridSize(int rows, int columns)
+        {
+            if (rows <= 0) throw new ArgumentOutOfRangeException("rows", "rows value must be > 0");]]></beforeSource>
+<source><![CDATA[            if (columns <= 0) throw new ArgumentOutOfRangeException("columns", "columns value must be > 0");]]></source>
+<afterSource><![CDATA[            Rows = rows;
+            Columns = columns;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="dd73c21c-039d-491e-b0d4-3f10541e128e"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at Position..ctor(Int32, Int32) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\Position.cs(20)" method="Position..ctor(Int32, Int32)" offset="61" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\Position.cs" line="20"><method assemblyName="GameOfLife.Models" name=".ctor" token="600000f"><declaringType assemblyName="GameOfLife.Models" name="Position" token="2000004" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="Position" token="2000004" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="row" position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter name="column" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        public Position(int row , int column)
+        {
+            if (row < 0) throw new ArgumentOutOfRangeException( "row","row value must be >= 0");]]></beforeSource>
+<source><![CDATA[            if (column < 0) throw new ArgumentOutOfRangeException( "column" , "column value must be >= 0");]]></source>
+<afterSource><![CDATA[            Row = row;
+            Column = column;
+        }]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="4d5a5707-ccc0-4e40-b60f-dc729e88e289"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at Position..ctor(Int32, Int32) in F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\Position.cs(19)" method="Position..ctor(Int32, Int32)" offset="34" file="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\Position.cs" line="19"><method assemblyName="GameOfLife.Models" name=".ctor" token="600000f"><declaringType assemblyName="GameOfLife.Models" name="Position" token="2000004" namespace="GameOfLife.Models"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="GameOfLife.Models" name="Position" token="2000004" namespace="GameOfLife.Models"/>
+</type>
+</parameter>
+<parameter name="row" position="1"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+<parameter name="column" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000f3" namespace="System"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public Position(int row , int column)
+        {]]></beforeSource>
+<source><![CDATA[            if (row < 0) throw new ArgumentOutOfRangeException( "row","row value must be >= 0");]]></source>
+<afterSource><![CDATA[            if (column < 0) throw new ArgumentOutOfRangeException( "column" , "column value must be >= 0");
+            Row = row;
+            Column = column;]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="f02de91b-311d-4f40-92e8-7ba886911e04"/>
+</tag>
+</frameNode>
+</frameException>
+</frameTree>

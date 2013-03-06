@@ -1,0 +1,94 @@
+﻿<documents created="2013-03-05 21:04:46Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Models\GridSize.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[namespace GameOfLife.Models
+{
+    #region Using Statements
+
+    using System;
+    using Contracts;
+
+    #endregion
+
+    public class GridSize : IGridSize
+    {
+        public int Rows { get; private set; }
+
+        public int Columns { get; private set; }
+
+        ]]></source>
+</chunk>
+<method name=".ctor" namespace="GameOfLife.Models" type="GameOfLife.Models.GridSize" typeName="GridSize" token="6000005" module="GameOfLife.Models.dll"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="6" value="1"/>
+<hit index="7" value="1"/>
+<hit index="8" value="1"/>
+<hit index="9" value="1"/>
+<hit index="11" value="1"/>
+<hit index="12" value="1"/>
+<hit index="13" value="1"/>
+<hit index="14" value="1"/>
+<hit index="15" value="1"/>
+<hit index="16" value="1"/>
+<hit index="17" value="1"/>
+<hit index="18" value="1"/>
+<hit index="19" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="10" total="10" coveredRatio="1"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[public GridSize(int rows, int columns)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0007" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0008" domain="usercodeundertest"><source><![CDATA[if (rows <= 0)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="1" offset="0010" domain="usercodeundertest"><source><![CDATA[throw new ArgumentOutOfRangeException("rows", "rows value must be > 0");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0020" domain="usercodeundertest"><source><![CDATA[if (columns <= 0)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="1" offset="0028" domain="usercodeundertest"><source><![CDATA[throw new ArgumentOutOfRangeException("columns", "columns value must be > 0");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0038" domain="usercodeundertest"><source><![CDATA[Rows = rows;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0040" domain="usercodeundertest"><source><![CDATA[Columns = columns;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0048" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+    }
+}]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Models.Tests, GameOfLife.Models)" missing="true"><method name="Constructor" type="GameOfLife.Models.GridSizeTest" token="6000001" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="set_Rows" type="GameOfLife.Models.GridSize" token="6000002" module="GameOfLife.Models.dll"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="set_Columns" type="GameOfLife.Models.GridSize" token="6000004" module="GameOfLife.Models.dll"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+</document>
+</documents>

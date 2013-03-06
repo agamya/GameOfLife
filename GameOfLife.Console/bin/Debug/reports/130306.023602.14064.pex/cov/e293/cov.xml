@@ -1,0 +1,228 @@
+﻿<documents created="2013-03-05 21:06:07Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Console\Helpers\GameOfLife.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[using System;
+using System.Collections.Generic;
+using GameOfLife.Contracts;
+
+namespace GameOfLife.Helpers
+{
+    public class GameOfLife
+    {
+
+        #region Private Fields
+
+        /// <summary>
+        /// Size of Grid to work 
+        /// </summary>
+        private IGridSize _gridSize;
+        /// <summary>
+        /// Total number of generations
+        /// </summary>
+        private int _totalGenerations;
+        /// <summary>
+        /// Variable to store Grid instance
+        /// </summary>
+        private IGrid _grid;
+        /// <summary>
+        /// Live cells information for first time from user to start the game
+        /// </summary>
+        private IEnumerable<ICell> _liveCells;
+
+        private IGameRules _gameRules;
+        #endregion
+
+        #region Construtor
+
+        ]]></source>
+</chunk>
+<method name=".ctor" namespace="GameOfLife.Helpers" type="GameOfLife.Helpers.GameOfLife" typeName="GameOfLife" token="6000001" module="GameOfLife.Console.exe"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[public GameOfLife(IGameRules gameRules)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0007" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0008" domain="usercodeundertest"><source><![CDATA[_gameRules = gameRules;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="2" offset="000f" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Start the Game of Life App
+        /// </summary>
+        public void Start()
+        {
+            do
+            {
+                PrintInstructionsToScreen();
+
+                // Input for gridsize
+                while (!TakeGridSizeFromUser())
+                {
+                    PrintInvalidInputMessage();
+                }
+                //Input for live cell
+                while (!TakeLiveCellsFromUser())
+                {
+                    PrintInvalidInputMessage();
+                }
+                while (!TakeGenerationNumbersFromUser())
+                {
+                    PrintInvalidInputMessage();
+                }
+                Console.WriteLine("Following grid will be used:");
+                //Create Grid
+                _grid = GridHelper.CreateGrid(_gridSize, _liveCells);
+                //Displaying the grid on UI
+                Console.WriteLine(_grid.ToConsoleFormattedString());
+                Console.WriteLine("Press Enter key to continue.");
+                Console.ReadLine();
+                //Start the generations
+                StartGenerations();
+            } while (GetUserConfirmation());
+
+        }
+
+        #endregion
+
+
+        #region Private Methods
+
+        private void StartGenerations()
+        {
+            for (int count = 0; count < _totalGenerations; count++)
+            {
+                Console.WriteLine("Grid after {0} evolution(s).\nPress enter to continue", count + 1);
+                Console.WriteLine(GridHelper.GetNextGenerationGrid(_grid,_gameRules).ToConsoleFormattedString());
+                Console.ReadLine();
+            }
+        }
+
+        private void PrintInvalidInputMessage()
+        {
+            Console.WriteLine("Invalid input. Please enter again");
+        }
+
+        private void PrintInstructionsToScreen()
+        {
+            Console.WriteLine("---------------------Welcome to The Game Of Life---------------------------\n");
+            Console.WriteLine(
+                "To start you will have to specify the size of the grid,\nthe initial live cells in the grid and\nthe number of times you want the grid to evolve.\n");
+            Console.WriteLine("Specify the Grid Size in the format : RowNumber,ColunmNumber for e.g 5,5 \n");
+            Console.WriteLine(
+                "Specify the live cells in the format : RowIndex,Colunmindex | RowIndex,Colunmindex for e.g 2,2 | 3,1\n");
+            Console.WriteLine("A live cell is represented by X and ");
+            Console.WriteLine("A dead cell is represented by - \n");
+            Console.WriteLine("Please follow the below messages carefully to execute without any problem.\n");
+            Console.WriteLine("--------------------------------------------------------------------------\n");
+
+        }
+
+        /// <summary>
+        /// Get the grid size information from user in rownumber,columnnumber format
+        /// Populate the gridsize field with parsed information
+        /// </summary>
+        /// <returns>True or false based on whether procesing is successful or not</returns>
+        private bool TakeGridSizeFromUser()
+        {
+            Console.Write("Enter Grid Size in (RowNumber,ColumnNumber) format  followed by Enter key : ");
+            var userInput = Console.ReadLine();
+            var result = false;
+            try
+            {
+                _gridSize = userInput.GetGridSize();
+                result = true;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine("Following error occurred : " + exception.Message);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Unknown error occurred : " + exception.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Get the live cells information from user in rownumber,columnnumber | rownumber,columnnumber format
+        /// Populate the gridsize field with parsed information
+        /// </summary>
+        /// <returns>True or false based on whether procesing is successful or not</returns>
+        private bool TakeLiveCellsFromUser()
+        {
+            Console.Write(
+                "Enter live cells in the ( rowIndex,colIndex | rowIndex,colIndex ) format followed by Enter key : ");
+            var userInput = Console.ReadLine();
+            var result = false;
+            try
+            {
+                _liveCells = userInput.ParseLiveCell(_gridSize);
+                result = true;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine("Following error occurred : " + exception.Message);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Unknown error occurred : " + exception.Message);
+            }
+            return result;
+        }
+
+        private bool TakeGenerationNumbersFromUser()
+        {
+            Console.Write("Enter number of generations followed by Enter key : ");
+            var userInput = Console.ReadLine();
+            return Int32.TryParse(userInput, out _totalGenerations);
+        }
+
+        /// <summary>
+        /// Function used to get the info from user whether he/she wants to continue of not
+        /// </summary>
+        /// <returns></returns>
+        private bool GetUserConfirmation()
+        {
+            Console.WriteLine("Press C followed by the Enter key to continue.");
+            var userInput = Console.ReadLine();
+            if (userInput != null)
+            {
+                if (string.Equals(userInput.Trim(), "C", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        #endregion
+
+    }
+}
+]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Console.Tests)" missing="true"><method name="Constructor" type="GameOfLife.Helpers.GameOfLifeTest" token="6000001" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+</document>
+</documents>

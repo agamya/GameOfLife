@@ -1,0 +1,193 @@
+﻿<documents created="2013-03-05 20:55:45Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\Grid.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[namespace GameOfLife.Core
+{
+    #region Using Statements
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Contracts;
+    using Data;
+    using Models;
+
+    #endregion
+
+    /// <summary>
+    ///  the grid is a "board" with an extra row on top & bottom and an extra column left & right (with dead cells)
+    ///  takes care of the position transformations
+    /// </summary>
+    public class Grid : IGrid
+    {
+        private readonly IGridStorage _gridStorage;
+
+        ]]></source>
+</chunk>
+<method name=".ctor" namespace="GameOfLife.Core" type="GameOfLife.Core.Grid" typeName="Grid" token="600000c" module="GameOfLife.Core.dll"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="6" value="1"/>
+<hit index="7" value="1"/>
+<hit index="17" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="4" total="7" coveredRatio="0.5714285714285714"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[public Grid(IGridSize gridSize)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="0007" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0008" domain="usercodeundertest"><source><![CDATA[if (gridSize == null)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="1" offset="0013" domain="usercodeundertest"><source><![CDATA[throw new ArgumentNullException("gridSize");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="001e" domain="usercodeundertest"><source><![CDATA[GridSize = gridSize;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0026" domain="usercodeundertest"><source><![CDATA[_gridStorage = new GridStorage(gridSize);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="0032" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+
+        public ICell GetCurrentCellInfo(IPosition position)
+        {
+            if (position == null) throw new ArgumentNullException("position");
+            if (!IsValidPosition(position)) throw new ArgumentOutOfRangeException("position");
+            var gridPosition = CreateGridPositionFrom(position);
+            var isCellAlive = _gridStorage.IsCellAlive(gridPosition);
+            var newCell = new Cell(position, isCellAlive);
+            return newCell;
+        }
+
+        public IEnumerable<ICell> GetAllCurrentCellInfo()
+        {
+            for (int i = 0; i < GridSize.Rows; i++)
+            {
+                for (int j = 0; j < GridSize.Columns; j++)
+                {
+                    yield return GetCurrentCellInfo(new Position(i, j));
+                }
+            }
+        }
+
+        //public IEnumerable<ICell> GetAllNextGenerationCellInfo()
+        //{
+        //    for (int i = 0; i < GridSize.Rows; i++)
+        //    {
+        //        for (int j = 0; j < GridSize.Columns; j++)
+        //        {
+        //            yield return CreateNextGenerationCellInfo(new Position(i, j));
+        //        }
+        //    }
+        //}
+
+        public void MakeCell(IPosition position, bool alive)
+        {
+            if (position == null) throw new ArgumentNullException("position");
+            if (!IsValidPosition(position)) throw new ArgumentOutOfRangeException("position");
+            var gridPosition = CreateGridPositionFrom(position);
+            _gridStorage.SetCell(gridPosition, alive);
+        }
+        public void MakeCell(ICell cell)
+        {
+            MakeCell(cell.Position, cell.Alive);
+        }
+
+        /// <summary>
+        /// Create new instance of current grid
+        /// </summary>
+        /// <param name="currentGrid">Current grid</param>
+        /// <returns>Retunr new grid instance</returns>
+        public IGrid Copy(IGrid currentGrid)
+        {
+            var gridCopy = new Grid(currentGrid.GridSize);
+            foreach (var newCell in currentGrid.GetAllCurrentCellInfo().Select(cell => new Cell(cell.Position, cell.Alive)))
+            {
+                gridCopy.MakeCell(newCell);
+            }
+
+            return gridCopy;
+        }
+
+        //private static IGridSize CreateGridSizeFrom(IBoardSize boardSize)
+        //{
+        //    return new GridSize(boardSize.Rows, boardSize.Columns);
+        //}
+
+        //private static IGridSize CreateGridSizeFrom(IGridSize gridSize)
+        //{
+        //    return new GridSize(gridSize.Rows, gridSize.Columns);
+        //}
+
+
+        #region Private Members
+
+        //private ICell CreateNextGenerationCellInfo(IPosition position)
+        //{
+        //    var gridPosition = CreateGridPositionFrom(position);
+        //    var currentExtendedGridCellInfo = _gridStorage.CreateExtendedGridCellInfo(gridPosition);
+        //    var aliveNextGeneration = _gameRules.WillBeAliveNextGeneration(currentExtendedGridCellInfo);
+        //    return new Cell(position, aliveNextGeneration);
+        //}
+
+        private IGridPosition CreateGridPositionFrom(IPosition position)
+        {
+            return new GridPosition(position);
+        }
+
+        private bool IsValidPosition(IPosition position)
+        {
+            return (position.Column < GridSize.Columns && position.Row < GridSize.Rows);
+        }
+
+        //private void MakeCell(ICell cellInfo)
+        //{
+        //    MakeCell(cellInfo.Position, cellInfo.Alive);
+        //}
+
+        #endregion
+
+
+        public void Initialize(IEnumerable<ICell> cells)
+        {
+            if (cells == null) return;
+            foreach (var cell in cells)
+            {
+                MakeCell(cell.Position, cell.Alive);
+            }
+        }
+
+        public IGridSize GridSize { get; set; }
+
+        //public IGrid CreateNextGeneration()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+
+    }
+}]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Core.Tests)" missing="true"><method name="Constructor" type="GameOfLife.Core.GridTest" token="600000c" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="2" coveredRatio="0.5"/>
+</method>
+</document>
+</documents>

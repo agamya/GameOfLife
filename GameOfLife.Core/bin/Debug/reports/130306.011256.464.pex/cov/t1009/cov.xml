@@ -1,0 +1,252 @@
+﻿<documents created="2013-03-05 19:43:02Z"><document src="F:\Ajay\Test Projects\GameOfLife\GameOfLife.Library\NeighboursFinder.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[using System.Collections.Generic;
+using GameOfLife.Contracts;
+
+namespace GameOfLife.Core
+{
+    /// <summary>
+    /// Find total alive neighbours of a specific cell
+    /// </summary>
+    public class NeighboursFinder : INeighbour
+    {
+        /// <summary>
+        /// Count how many neighbours of the specific cell are alive.
+        /// There are total 8 neighbours for a specific cell
+        /// </summary>
+        /// <param name="cell">Cell for which neighbours needs to be find</param>
+        /// <param name="grid">Grid which contains all cell information</param>
+        /// <returns>Retruns the info of all neighbours</returns>
+        public IEnumerable<ICellInfo> RetrieveNeighbours(ICellInfo cell, IGrid grid)
+        ]]></source>
+</chunk>
+<method name="RetrieveNeighbours" namespace="GameOfLife.Core" type="GameOfLife.Core.NeighboursFinder" typeName="NeighboursFinder" token="6000021" module="GameOfLife.Core.dll"><hits><hit index="0" value="1"/>
+<hit index="2" value="1"/>
+<hit index="290" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="3" total="95" coveredRatio="0.031578947368421054"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0001" domain="usercodeundertest"><source><![CDATA[if (cell == null || grid == null)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="1" offset="0012" domain="usercodeundertest"><source><![CDATA[return null;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0019" domain="usercodeundertest"><source><![CDATA[var neighbours = new List<ICellInfo>();]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="001f" domain="usercodeundertest"><source><![CDATA[var currCellPosition = cell.Position;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateDiagonalTopLeftNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0026" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row - 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="003a" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column - 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="004e" domain="usercodeundertest"><source><![CDATA[if(IsValidIndex(currCellPosition,grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="005d" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateTopNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="006b" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row - 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="007f" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0091" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="00a0" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateDiagonalTopRightNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="00ae" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row - 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="00c2" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column + 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="00d6" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="00e5" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateLeftNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="00f3" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0105" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column - 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0119" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="0128" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateRightNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0136" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0148" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column + 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="015c" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="016b" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateDiagonalBottomLeftNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0179" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row + 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="018d" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column - 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="01a1" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="01b0" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+ 
+            //CalculateBottomNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="01be" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row + 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="01d2" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="01e4" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="01f3" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            //CalculateDiagonalBottomRightNeighbour
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0201" domain="usercodeundertest"><source><![CDATA[currCellPosition.Row = cell.Position.Row + 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0215" domain="usercodeundertest"><source><![CDATA[currCellPosition.Column = cell.Position.Column + 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0229" domain="usercodeundertest"><source><![CDATA[if (IsValidIndex(currCellPosition, grid))]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="0" offset="0238" domain="usercodeundertest"><source><![CDATA[neighbours.Add(grid.GetCurrentCellInfo(currCellPosition));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0246" domain="usercodeundertest"><source><![CDATA[return neighbours;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="1" offset="024a" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+        /// <summary>
+        /// Check whether the current requested cell position is valid withing grid or not
+        /// </summary>
+        /// <param name="position">Position information</param>
+        /// <param name="grid">Grid instance to check</param>
+        /// <returns>If valid return true else false</returns>
+        private bool IsValidIndex(IPosition position,IGrid grid)
+        {
+            if (position.Row > grid.GridSize.Rows - 1 || position.Row < 0) return false;
+
+            if (position.Column > grid.GridSize.Columns - 1 || position.Column < 0) return false;
+
+            return true;
+        }
+    }
+}
+]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of GameOfLife.Core.Tests)" missing="true"><method name="RetrieveNeighbours" type="GameOfLife.Core.NeighboursFinderTest" token="600001d" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+</document>
+</documents>

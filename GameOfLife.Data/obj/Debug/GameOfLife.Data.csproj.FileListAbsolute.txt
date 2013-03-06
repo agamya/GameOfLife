@@ -1,0 +1,18 @@
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\bin\Debug\GameOfLife.Data.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\bin\Debug\GameOfLife.Data.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\bin\Debug\GameOfLife.Contracts.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\bin\Debug\GameOfLife.Models.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\bin\Debug\GameOfLife.Contracts.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\bin\Debug\GameOfLife.Models.pdb
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\obj\Debug\GameOfLife.Data.csprojResolveAssemblyReference.cache
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\obj\Debug\GameOfLife.Data.dll
+F:\Ajay\Test Projects\GameOfLife\GameOfLife.Data\obj\Debug\GameOfLife.Data.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\bin\Debug\GameOfLife.Data.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\bin\Debug\GameOfLife.Data.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\bin\Debug\GameOfLife.Contracts.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\bin\Debug\GameOfLife.Models.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\bin\Debug\GameOfLife.Contracts.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\bin\Debug\GameOfLife.Models.pdb
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\obj\Debug\GameOfLife.Data.csprojResolveAssemblyReference.cache
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\obj\Debug\GameOfLife.Data.dll
+F:\Ajay\Test Projects\GameOfLife - New\GameOfLife.Data\obj\Debug\GameOfLife.Data.pdb
