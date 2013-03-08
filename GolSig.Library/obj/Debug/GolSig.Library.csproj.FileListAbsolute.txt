@@ -1,5 +1,0 @@
-F:\Ajay\Test Projects\GameOfLife\GolSig.Library\bin\Debug\GameOfLife.Library.dll
-F:\Ajay\Test Projects\GameOfLife\GolSig.Library\bin\Debug\GameOfLife.Library.pdb
-F:\Ajay\Test Projects\GameOfLife\GolSig.Library\obj\Debug\GameOfLife.Library.dll
-F:\Ajay\Test Projects\GameOfLife\GolSig.Library\obj\Debug\GameOfLife.Library.pdb
-F:\Ajay\Test Projects\GameOfLife\GolSig.Library\obj\Debug\GolSig.Library.csprojResolveAssemblyReference.cache
